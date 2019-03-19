@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.naren.write.file;
+package com.naren.file;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -54,7 +54,7 @@ public class FileWriterUtil {
 			lines.append(line.stream().collect(Collectors.joining(TAB))).append(NEW_LINE);
 		});
 		
-		String lines_ = lists.parallelStream().map( l -> l.stream().collect(Collectors.joining(TAB))).collect(Collectors.joining(NEW_LINE));
+		//String lines_ = lists.parallelStream().map( l -> l.stream().collect(Collectors.joining(TAB))).collect(Collectors.joining(NEW_LINE));
 		
 		OpenOption option[] = { StandardOpenOption.CREATE };
 		try {

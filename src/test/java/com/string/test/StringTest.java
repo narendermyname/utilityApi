@@ -3,7 +3,11 @@
  */
 package com.string.test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author nstanwar
@@ -11,22 +15,26 @@ import java.util.Date;
  */
 public class StringTest {
 
-	/**
-	 * 
-	 */
-	public StringTest() {
-		// TODO Auto-generated constructor stub
-	}
+	private static final Comparator<String> STRING_SORT = (str1, str2)->{
+		return str1.compareTo(str2);
+	};
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//System.out.println(reverseString("narender".toCharArray()));
-		Date date=new Date();
-		int dateString=date.getSeconds();
-		System.out.println(date.getTime());
+		
+		sortStirng();
+	}
+	
+	private static void sortStirng() {
+		List<String> list = Arrays.asList("Valid for 48 Hours, Rome Hop-on Hop-off +Colosseum Skip the Line",
+				"Valid for 24 Hours, Rome Hop-on Hop-off +Colosseum Skip the Line", 
+				"Valid for 24 Hours, Rome Hop-on Hop-off + Vatican Museum Skip the Line",
+				"Valid for 48 Hours, Rome Hop-on Hop-off + Vatican and Colosseum Skip the Line + Public Transport",
+				"Valid for 48 Hours, Rome Hop-on Hop-off + Colosseum and Vatican Skip the Line");
+		Collections.sort(list,STRING_SORT);
+		list.stream().forEach(l->System.out.println(l));
 	}
 	
 	private static  String reverseString(char aa[])
